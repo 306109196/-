@@ -1,0 +1,14 @@
+{
+  "name": "zhujian-history-persona",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "照见·中外历史人物人格测试与验证码访问控制",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --check server.mjs && node --check app.js && node --check gate.js && node --check admin.js && node --check data.js && node --check questions.js"
+  }
+}

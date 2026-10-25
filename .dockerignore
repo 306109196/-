@@ -1,0 +1,13 @@
+storage
+node_modules
+.git
+.gitignore
+.env
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+README.md
+DEPLOY.md
+render.yaml
+docker-compose.yml
+Caddyfile

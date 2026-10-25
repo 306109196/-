@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#ece8f7" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="description"
+      content="输入购买后获得的专属验证码，进入照见历史人物人格档案。"
+    />
+    <title>照见 · 验证码入口</title>
+    <link rel="stylesheet" href="./gate.css" />
+  </head>
+  <body>
+    <div class="gate-grain" aria-hidden="true"></div>
+
+    <header class="gate-header">
+      <a class="gate-brand" href="/" aria-label="照见验证码入口">
+        <span class="gate-seal" aria-hidden="true">见</span>
+        <span>
+          <strong>照见</strong>
+          <small>THE INNER ARCHIVE</small>
+        </span>
+      </a>
+      <p>专属访问 · 一人一码</p>
+    </header>
+
+    <main class="gate-main">
+      <section class="gate-intro" aria-labelledby="gate-title">
+        <p class="gate-eyebrow"><span>PRIVATE ARCHIVE</span><span>验证入口</span></p>
+        <h1 id="gate-title">这面古镜，<br />只为持钥者打开。</h1>
+        <p class="gate-lead">
+          输入购买后收到的专属验证码和预留手机号。
+          验证码首次使用时会与手机号绑定，之后不能转给其他号码。
+        </p>
+
+        <div class="gate-map" aria-hidden="true">
+          <span class="map-word word-one">决</span>
+          <span class="map-word word-two">察</span>
+          <span class="map-word word-three">言</span>
+          <span class="map-word word-four">承</span>
+          <i class="map-ring ring-one"></i>
+          <i class="map-ring ring-two"></i>
+          <div class="map-seal">鉴</div>
+          <span class="map-orbit orbit-one"></span>
+          <span class="map-orbit orbit-two"></span>
+        </div>
+
+        <p class="gate-quote">“以古为镜，见自己。”</p>
+      </section>
+
+      <section class="access-panel" aria-labelledby="access-title">
+        <div class="access-topline">
+          <span>ACCESS / ENTRY 01</span>
+          <span class="access-lock" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="5" y="10" width="14" height="10" rx="1"></rect>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+            </svg>
+          </span>
+        </div>
+
+        <p class="access-index">验证码登录</p>
+        <h2 id="access-title">进入你的历史档案</h2>
+        <p class="access-copy">请使用付款时预留的手机号，避免验证码绑定到错误号码。</p>
+
+        <form id="access-form" novalidate>
+          <label class="field-label" for="phone">手机号码</label>
+          <div class="phone-field">
+            <span>+86</span>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              inputmode="numeric"
+              maxlength="13"
+              autocomplete="tel-national"
+              placeholder="请输入 11 位手机号"
+              aria-describedby="phone-hint"
+              required
+            />
+          </div>
+          <p class="field-hint" id="phone-hint">手机号仅用于绑定验证码，页面不会公开展示。</p>
+
+          <label class="field-label code-label" for="access-code">专属验证码</label>
+          <input
+            id="access-code"
+            name="accessCode"
+            type="text"
+            inputmode="text"
+            maxlength="14"
+            autocomplete="one-time-code"
+            placeholder="ZJ-XXXX-XXXX"
+            spellcheck="false"
+            autocapitalize="characters"
+            required
+          />
+
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+
+          <button class="access-submit" id="access-submit" type="submit">
+            <span>验证并进入</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14"></path>
+              <path d="m14 7 5 5-5 5"></path>
+            </svg>
+          </button>
+        </form>
+
+        <div class="access-notes">
+          <div>
+            <span>01</span>
+            <p>一个验证码只能绑定一个手机号，绑定后不可更改。</p>
+          </div>
+          <div>
+            <span>02</span>
+            <p>登录状态默认保留 30 天，过期后可使用原号码与验证码重新进入。</p>
+          </div>
+          <div>
+            <span>03</span>
+            <p>尚未收到验证码，请先查看购买平台发送的订单消息。</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="gate-footer">
+      <span>照见 · THE INNER ARCHIVE</span>
+      <span>隐私保护：手机号以不可逆哈希形式保存</span>
+      <span>© 2026</span>
+    </footer>
+
+    <script src="./gate.js"></script>
+  </body>
+</html>

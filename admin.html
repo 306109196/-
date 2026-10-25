@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#f1eee7" />
+    <title>照见 · 验证码管理</title>
+    <link rel="stylesheet" href="./admin.css" />
+  </head>
+  <body>
+    <header class="admin-header">
+      <a href="/" class="admin-brand">
+        <span>见</span>
+        <strong>照见 · 管理中心</strong>
+      </a>
+      <p>ACCESS CODE CONSOLE</p>
+    </header>
+
+    <main>
+      <section class="admin-login" id="admin-login">
+        <p class="admin-eyebrow">PRIVATE CONSOLE / 01</p>
+        <h1>验证码管理后台</h1>
+        <p>输入服务端配置的 <code>ADMIN_TOKEN</code> 以生成、查看和管理访问验证码。</p>
+        <form id="login-form">
+          <label for="admin-token">管理员令牌</label>
+          <input id="admin-token" type="password" autocomplete="current-password" placeholder="输入 ADMIN_TOKEN" required />
+          <button type="submit">进入管理后台</button>
+        </form>
+        <p class="admin-message" id="login-message" role="status"></p>
+      </section>
+
+      <section class="admin-dashboard" id="admin-dashboard" hidden>
+        <div class="dashboard-heading">
+          <div>
+            <p class="admin-eyebrow">ACCESS CODE CONSOLE / 02</p>
+            <h1>验证码管理</h1>
+          </div>
+          <div class="dashboard-actions">
+            <button class="secondary-button" id="refresh-button" type="button">刷新数据</button>
+            <button class="secondary-button" id="logout-button" type="button">退出后台</button>
+          </div>
+        </div>
+
+        <div class="stats-grid" id="stats-grid">
+          <div><span>总验证码</span><strong id="stat-total">0</strong></div>
+          <div><span>已兑换</span><strong id="stat-redeemed">0</strong></div>
+          <div><span>已预留</span><strong id="stat-reserved">0</strong></div>
+          <div><span>待使用</span><strong id="stat-available">0</strong></div>
+        </div>
+
+        <div class="admin-grid">
+          <section class="issue-section" aria-labelledby="issue-title">
+            <p class="section-number">01 / ISSUE</p>
+            <h2 id="issue-title">生成验证码</h2>
+            <p>
+              不填写手机号时，验证码将在首次兑换时自动绑定手机号。填写手机号时，验证码只能由该号码使用。
+            </p>
+
+            <form id="issue-form">
+              <div class="form-row">
+                <label for="issue-count">生成数量</label>
+                <input id="issue-count" type="number" min="1" max="100" value="1" required />
+              </div>
+              <div class="form-row">
+                <label for="issue-phone">绑定手机号 <small>可选</small></label>
+                <input id="issue-phone" type="tel" inputmode="numeric" maxlength="11" placeholder="填写后只允许该号码使用" />
+              </div>
+              <div class="form-row">
+                <label for="issue-expiry">有效天数</label>
+                <input id="issue-expiry" type="number" min="1" max="3650" value="365" required />
+              </div>
+              <div class="form-row">
+                <label for="issue-note">备注 <small>可选</small></label>
+                <input id="issue-note" type="text" maxlength="100" placeholder="例如：小红书订单后四位" />
+              </div>
+              <button class="primary-button" type="submit">生成验证码</button>
+            </form>
+
+            <p class="admin-message" id="issue-message" role="status"></p>
+            <div class="issued-codes" id="issued-codes" hidden>
+              <div>
+                <span>本次生成</span>
+                <button id="copy-codes" type="button">复制全部</button>
+              </div>
+              <pre id="issued-code-list"></pre>
+            </div>
+          </section>
+
+          <section class="purchase-section" aria-labelledby="purchase-title">
+            <p class="section-number">02 / AUTOMATION</p>
+            <h2 id="purchase-title">购买后自动发码</h2>
+            <p>
+              支付平台或自动化工具在订单支付成功后调用以下接口。接口按订单号幂等，同一订单不会重复生成验证码。
+            </p>
+            <div class="endpoint-box">
+              <span>POST</span>
+              <code>/api/purchase/complete</code>
+            </div>
+            <pre class="code-sample">{
+  "orderId": "XHS202610250001",
+  "phone": "13800138000"
+}</pre>
+            <p class="automation-note">
+              请求头需携带 <code>x-webhook-secret</code>。接口返回唯一验证码；
+              若配置了 <code>DELIVERY_WEBHOOK_URL</code>，系统还会把验证码自动转发给短信或消息服务。
+            </p>
+            <div class="automation-state" id="automation-state">正在读取自动发码状态...</div>
+          </section>
+        </div>
+
+        <section class="codes-section" aria-labelledby="codes-title">
+          <div class="codes-heading">
+            <div>
+              <p class="section-number">03 / RECORDS</p>
+              <h2 id="codes-title">最近验证码</h2>
+            </div>
+            <span class="admin-message" id="list-message" role="status"></span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>验证码</th>
+                  <th>状态</th>
+                  <th>绑定手机号</th>
+                  <th>订单号</th>
+                  <th>创建时间</th>
+                  <th>兑换时间</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody id="codes-table-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <p class="admin-security-note">
+          安全提示：生产环境必须设置足够长的 <code>ADMIN_TOKEN</code>、<code>PURCHASE_WEBHOOK_SECRET</code> 和
+          <code>PHONE_HASH_SECRET</code>，并通过 HTTPS 访问。
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <span>照见 · ACCESS CONTROL</span>
+      <span>验证码与手机号一一绑定</span>
+    </footer>
+
+    <div class="admin-toast" id="admin-toast" role="status" aria-live="polite"></div>
+    <script src="./admin.js"></script>
+  </body>
+</html>

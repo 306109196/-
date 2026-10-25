@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: zhujian-history-persona
+    runtime: docker
+    plan: starter
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 10000
+      - key: DATA_DIR
+        value: /var/data
+      - key: SESSION_DAYS
+        value: 30
+      - key: COOKIE_SECURE
+        value: 1
+      - key: TRUST_PROXY
+        value: 1
+      - key: ADMIN_TOKEN
+        generateValue: true
+      - key: PURCHASE_WEBHOOK_SECRET
+        generateValue: true
+      - key: PHONE_HASH_SECRET
+        generateValue: true
+    disk:
+      name: zhujian-data
+      mountPath: /var/data
+      sizeGB: 1

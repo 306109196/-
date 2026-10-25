@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="照见是一份以中外历史人物为镜像的人格档案。用 24 道情境选择，照见你的决断、洞察、表达与担当。"
+    />
+    <meta name="theme-color" content="#ece8f7" />
+    <title>照见 · 你与哪位历史人物相似？</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="paper-grain" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <button class="brand" type="button" data-action="home" aria-label="返回照见首页">
+        <span class="brand-seal" aria-hidden="true">见</span>
+        <span class="brand-copy">
+          <strong>照见</strong>
+          <small>THE INNER ARCHIVE</small>
+        </span>
+      </button>
+
+      <p class="header-motto">以古为镜，见自己</p>
+
+      <nav class="header-actions" aria-label="页面操作">
+        <button class="text-button" type="button" data-action="guide">测试说明</button>
+        <button class="text-button" type="button" data-action="logout">退出登录</button>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="view view-home is-active" id="home-view" aria-labelledby="home-title">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">
+              <span>PERSONALITY ARCHIVE</span>
+              <span>人格档案 · 001</span>
+            </p>
+
+            <h1 id="home-title" class="display-title">
+              你与哪位
+              <span>历史人物</span>
+              相似？
+            </h1>
+
+            <p class="hero-intro">
+              二十四次情境选择，读取你的决断、洞察、表达与担当。
+              从中国与世界历代人物中，找到与你精神底色最接近的那一位。
+            </p>
+
+            <div class="hero-meta" aria-label="测试信息">
+              <div>
+                <strong>24</strong>
+                <span>道情境题</span>
+              </div>
+              <div>
+                <strong>120</strong>
+                <span>道随机题库</span>
+              </div>
+              <div>
+                <strong>44</strong>
+                <span>位中外镜像</span>
+              </div>
+            </div>
+
+            <div class="hero-cta-row">
+              <button class="primary-button" type="button" data-action="start">
+                <span>开始照见</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14"></path>
+                  <path d="m14 7 5 5-5 5"></path>
+                </svg>
+              </button>
+              <p>没有标准答案，选择第一直觉。</p>
+            </div>
+
+            <div class="hero-footnote">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span>已有 18,642 人完成本次照见</span>
+              <span class="footnote-divider" aria-hidden="true"></span>
+              <button type="button" data-action="guide">了解匹配方式</button>
+            </div>
+          </div>
+
+          <div class="archive-visual" aria-label="历代人物人格图谱">
+            <div class="archive-topline">
+              <span>SOUL MAP / 群像索引</span>
+              <span>AXIS 01—04</span>
+            </div>
+
+            <div class="persona-map">
+              <div class="map-grid" aria-hidden="true"></div>
+              <div class="map-ring ring-outer" aria-hidden="true"></div>
+              <div class="map-ring ring-inner" aria-hidden="true"></div>
+              <span class="map-line line-a" aria-hidden="true"></span>
+              <span class="map-line line-b" aria-hidden="true"></span>
+              <span class="map-line line-c" aria-hidden="true"></span>
+              <span class="map-line line-d" aria-hidden="true"></span>
+
+              <span class="name-node node-kong">孔</span>
+              <span class="name-node node-zhuang">庄</span>
+              <span class="name-node node-li">贞</span>
+              <span class="name-node node-du">居</span>
+              <span class="name-node node-su">苏</span>
+              <span class="name-node node-wang">达</span>
+              <span class="name-node node-cao">曹</span>
+              <span class="name-node node-qing">清</span>
+
+              <div class="map-center">
+                <span>照</span>
+                <span>见</span>
+                <small>INWARD</small>
+              </div>
+
+              <div class="axis-label axis-top">洞察<br /><small>INSIGHT</small></div>
+              <div class="axis-label axis-right">表达<br /><small>VOICE</small></div>
+              <div class="axis-label axis-bottom">担当<br /><small>DUTY</small></div>
+              <div class="axis-label axis-left">决断<br /><small>WILL</small></div>
+            </div>
+
+            <div class="archive-brief">
+              <div>
+                <span class="brief-index">01</span>
+                <p>不是给你一个标签，<br />而是递来一面古镜。</p>
+              </div>
+              <div class="brief-marks" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="home-manifesto">
+          <span class="manifesto-index">序 / PREFACE</span>
+          <p>
+            每一次选择都会改变人物的轮廓。请放下“应该成为谁”的念头，
+            只回答此刻的你，会怎么做。
+          </p>
+          <span class="vertical-note" aria-hidden="true">见天地 · 见众生 · 见自己</span>
+        </div>
+      </section>
+
+      <section class="view view-preferences" id="preferences-view" aria-label="映射偏好" hidden>
+        <div class="preference-shell">
+          <div class="preference-heading">
+            <p class="eyebrow"><span>MAPPING PREFERENCE</span><span>映射偏好</span></p>
+            <p class="preference-progress">
+              <span id="preference-step-label">STEP 01 / 02</span>
+              <i><b id="preference-progress-fill"></b></i>
+            </p>
+          </div>
+
+          <div class="preference-step is-active" id="preference-step-one">
+            <p class="preference-index">01 / 选择历史坐标</p>
+            <h1 id="preference-title">你想照见哪一片历史？</h1>
+            <p class="preference-lead">
+              先确定人物范围。两种范围会使用各自独立的人物库，不影响后面的题目。
+            </p>
+
+            <div class="scope-options" role="group" aria-label="选择历史人物范围">
+              <button class="scope-option" type="button" data-scope="cn">
+                <span class="scope-number">01</span>
+                <span class="scope-copy">
+                  <strong>中国历史人物</strong>
+                  <small>CHINESE ARCHIVE · 先秦至近代</small>
+                  <em>从孔孟老庄到诗人、改革者与女性先行者。</em>
+                </span>
+                <span class="scope-mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M5 12h14"></path>
+                    <path d="m14 7 5 5-5 5"></path>
+                  </svg>
+                </span>
+              </button>
+              <button class="scope-option" type="button" data-scope="world">
+                <span class="scope-number">02</span>
+                <span class="scope-copy">
+                  <strong>世界历史人物</strong>
+                  <small>GLOBAL ARCHIVE · 跨文明与时代</small>
+                  <em>从古代哲人、统帅到科学家、作家与行动者。</em>
+                </span>
+                <span class="scope-mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M5 12h14"></path>
+                    <path d="m14 7 5 5-5 5"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div class="preference-step" id="preference-step-two" hidden>
+            <button class="preference-back" type="button" data-action="preference-back">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 12H5"></path>
+                <path d="m10 17-5-5 5-5"></path>
+              </svg>
+              重选历史坐标
+            </button>
+
+            <p class="preference-index">02 / 选择镜像偏好</p>
+            <h1>你希望遇见怎样的镜像？</h1>
+            <p class="preference-lead">
+              性别只影响匹配优先级，不改变题目。每一种选择，都能得到完整的人格结果。
+            </p>
+
+            <div class="preference-selection">
+              <span>已选范围</span>
+              <strong id="selected-scope-label">中国历史人物</strong>
+            </div>
+
+            <div class="gender-options" role="radiogroup" aria-label="选择人物性别优先">
+              <button type="button" class="gender-option" data-gender="male" role="radio" aria-checked="false">
+                <span class="gender-symbol" aria-hidden="true">乾</span>
+                <span><strong>男性优先</strong><small>MALE FIRST</small></span>
+                <i aria-hidden="true"></i>
+              </button>
+              <button type="button" class="gender-option" data-gender="female" role="radio" aria-checked="false">
+                <span class="gender-symbol" aria-hidden="true">坤</span>
+                <span><strong>女性优先</strong><small>FEMALE FIRST</small></span>
+                <i aria-hidden="true"></i>
+              </button>
+              <button type="button" class="gender-option" data-gender="any" role="radio" aria-checked="false">
+                <span class="gender-symbol" aria-hidden="true">合</span>
+                <span><strong>不限性别</strong><small>ALL MIRRORS</small></span>
+                <i aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <div class="preference-summary">
+              <span>本次将在</span>
+              <strong id="preference-summary-text">中国历史人物中不限性别匹配</strong>
+              <span>，共 <b id="preference-candidate-count">24</b> 位候选人物。</span>
+            </div>
+
+            <button class="primary-button preference-start" type="button" data-action="begin-quiz" disabled>
+              <span>开始 24 题照见</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m14 7 5 5-5 5"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="view view-quiz" id="quiz-view" aria-labelledby="question-title" hidden>
+        <div class="quiz-shell">
+          <aside class="quiz-aside">
+            <div>
+              <p class="eyebrow"><span>INNER ARCHIVE</span><span>作答中</span></p>
+              <p class="quiz-counter" aria-live="polite">
+                <span id="question-current">01</span>
+                <span>/ 24 · <b id="question-percent">4%</b></span>
+              </p>
+              <p class="quiz-theme" id="quiz-theme">判断与洞察</p>
+            </div>
+
+            <div class="quiz-dimensions" aria-label="正在读取的四项人格维度">
+              <div data-dimension="d">
+                <span>决断</span><small>WILL</small>
+                <i><b></b></i>
+              </div>
+              <div data-dimension="i">
+                <span>洞察</span><small>INSIGHT</small>
+                <i><b></b></i>
+              </div>
+              <div data-dimension="e">
+                <span>表达</span><small>VOICE</small>
+                <i><b></b></i>
+              </div>
+              <div data-dimension="r">
+                <span>担当</span><small>DUTY</small>
+                <i><b></b></i>
+              </div>
+            </div>
+
+            <p class="quiz-aside-note">答案没有好坏之分。<br />诚实，是唯一的规则。</p>
+          </aside>
+
+          <div class="question-stage">
+            <div class="question-progress" aria-hidden="true">
+              <span id="question-progress-fill"></span>
+            </div>
+
+            <div class="question-content">
+              <p class="question-kicker" id="question-kicker">关于选择</p>
+              <h2 id="question-title">问题载入中</h2>
+              <p class="question-context" id="question-context"></p>
+              <div class="answer-list" id="answer-list"></div>
+            </div>
+
+            <div class="question-footer">
+              <button class="back-button" id="question-back" type="button" data-action="back">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M19 12H5"></path>
+                  <path d="m10 17-5-5 5-5"></path>
+                </svg>
+                <span>上一题</span>
+              </button>
+              <p class="answer-hint">
+                <span class="keyboard-hint">按 A / B / C / D 也可选择</span>
+                <span class="mobile-hint">选择后自动进入下一题</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view view-loading" id="loading-view" aria-labelledby="loading-title" hidden>
+        <div class="loading-shell">
+          <p class="eyebrow"><span>READING THE ARCHIVE</span><span>正在检索</span></p>
+          <div class="analysis-figure" aria-hidden="true">
+            <div class="analysis-ring analysis-ring-a"></div>
+            <div class="analysis-ring analysis-ring-b"></div>
+            <div class="analysis-axis axis-a"></div>
+            <div class="analysis-axis axis-b"></div>
+            <div class="analysis-scan"></div>
+            <span class="analysis-word word-a">决</span>
+            <span class="analysis-word word-b">察</span>
+            <span class="analysis-word word-c">言</span>
+            <span class="analysis-word word-d">承</span>
+            <div class="analysis-seal">鉴</div>
+          </div>
+          <h2 id="loading-title">正在比对中外人物</h2>
+          <p class="loading-status" id="loading-status" aria-live="polite">建立你的四维人格坐标...</p>
+          <div class="loading-meter"><span id="loading-meter-fill"></span></div>
+          <p class="loading-note">我们正在寻找相似的精神底色，而非复刻一段人生。</p>
+        </div>
+      </section>
+
+      <section class="view view-result" id="result-view" aria-labelledby="result-name" hidden>
+        <div class="result-shell">
+          <div class="result-heading">
+            <div>
+              <p class="eyebrow"><span>PERSONALITY MATCH</span><span>照见结果</span></p>
+              <p class="result-date" id="result-date"></p>
+            </div>
+            <button class="outline-button" type="button" data-action="restart">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path>
+                <path d="M3 3v5h5"></path>
+              </svg>
+              重新测试
+            </button>
+          </div>
+
+          <div class="result-hero">
+            <div class="result-name-block">
+              <p class="result-eyebrow">你的历史镜像</p>
+              <div class="result-name-line">
+                <h1 class="result-name display-title" id="result-name">苏轼</h1>
+                <div class="match-score">
+                  <span id="match-score">93</span><small>%</small>
+                  <em>精神相似度</em>
+                </div>
+              </div>
+              <p class="result-archetype" id="result-archetype">旷达的清醒者</p>
+              <p class="result-era" id="result-era">北宋 · 文学家 / 政治家</p>
+              <p class="result-preference" id="result-preference">中国人物 · 不限性别</p>
+              <blockquote id="result-quote">“人生如逆旅，我亦是行人。”</blockquote>
+            </div>
+
+            <div class="result-seal-block" aria-hidden="true">
+              <span class="result-seal-top">照见</span>
+              <div class="result-seal" id="result-seal">轼</div>
+              <span class="result-seal-bottom">MIRROR OF AGES</span>
+              <i></i><i></i><i></i>
+            </div>
+
+            <div class="result-summary">
+              <p class="summary-label">你的精神侧写</p>
+              <p class="summary-text" id="result-summary"></p>
+              <div class="result-tags" id="result-tags"></div>
+            </div>
+          </div>
+
+          <div class="result-data">
+            <div class="profile-section">
+              <div class="section-title-row">
+                <h2>四维人格坐标</h2>
+                <span>YOUR INNER COORDINATES</span>
+              </div>
+              <div class="profile-layout">
+                <div class="radar-wrap">
+                  <svg class="radar-chart" viewBox="0 0 280 260" role="img" aria-label="四维人格雷达图">
+                    <g class="radar-grid">
+                      <polygon points="140,18 254,84 210,230 70,230 26,84"></polygon>
+                      <polygon points="140,45 225,95 191,204 89,204 55,95"></polygon>
+                      <polygon points="140,72 196,106 172,178 108,178 84,106"></polygon>
+                      <polygon points="140,99 167,117 153,152 127,152 113,117"></polygon>
+                      <line x1="140" y1="18" x2="140" y2="230"></line>
+                      <line x1="26" y1="84" x2="254" y2="84"></line>
+                      <line x1="70" y1="230" x2="210" y2="230"></line>
+                    </g>
+                    <polygon class="radar-fill" id="radar-fill" points="140,44 228,96 184,194 92,194 56,96"></polygon>
+                    <g class="radar-points" id="radar-points"></g>
+                    <text x="140" y="12" text-anchor="middle">洞察</text>
+                    <text x="266" y="86" text-anchor="middle">表达</text>
+                    <text x="140" y="250" text-anchor="middle">担当</text>
+                    <text x="14" y="86" text-anchor="middle">决断</text>
+                  </svg>
+                </div>
+
+                <div class="score-list" id="score-list"></div>
+              </div>
+            </div>
+
+            <div class="character-section">
+              <div class="section-title-row">
+                <h2>为何是你</h2>
+                <span>WHY THIS MIRROR</span>
+              </div>
+              <div class="character-grid">
+                <article>
+                  <span class="article-index">01</span>
+                  <h3>相似之处</h3>
+                  <p id="result-similarity"></p>
+                </article>
+                <article>
+                  <span class="article-index">02</span>
+                  <h3>你的天赋</h3>
+                  <ul id="result-strengths"></ul>
+                </article>
+                <article>
+                  <span class="article-index">03</span>
+                  <h3>容易忽略</h3>
+                  <p id="result-blindspot"></p>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-matches">
+            <div class="section-title-row">
+              <h2>与你相近的历史镜像</h2>
+              <span>OTHER KINDRED SOULS</span>
+            </div>
+            <div class="kindred-list" id="kindred-list"></div>
+          </div>
+
+          <div class="result-action">
+            <div>
+              <p class="action-kicker">把这份照见带走</p>
+              <h2>生成你的专属人物档案卡</h2>
+              <p>保存为高清图片，分享给朋友，或留作下一次选择前的提醒。</p>
+            </div>
+            <div class="result-action-buttons">
+              <button class="primary-button" type="button" data-action="download">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3v12"></path>
+                  <path d="m7 10 5 5 5-5"></path>
+                  <path d="M5 21h14"></path>
+                </svg>
+                <span>保存档案卡</span>
+              </button>
+              <button class="outline-button" type="button" data-action="share">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="18" cy="5" r="3"></circle>
+                  <circle cx="6" cy="12" r="3"></circle>
+                  <circle cx="18" cy="19" r="3"></circle>
+                  <path d="m8.6 10.5 6.8-4"></path>
+                  <path d="m8.6 13.5 6.8 4"></path>
+                </svg>
+                <span>分享档案</span>
+              </button>
+            </div>
+          </div>
+
+          <p class="result-disclaimer">
+            本测试基于情境选择与人格维度匹配，用于自我观察与娱乐，不构成心理诊断。
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>照见 · THE INNER ARCHIVE</span>
+      <span>以古为镜，见自己</span>
+      <span>© 2026</span>
+    </footer>
+
+    <dialog class="guide-dialog" id="guide-dialog" aria-labelledby="guide-title">
+      <button class="dialog-close" type="button" data-action="close-guide" aria-label="关闭测试说明">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </button>
+      <p class="eyebrow"><span>HOW IT WORKS</span><span>测试说明</span></p>
+      <h2 id="guide-title">一面由选择组成的古镜</h2>
+      <p class="dialog-lead">
+        先选择中国或世界人物范围，再选择性别优先。系统会从 120 道原创题库中随机抽取 24 道情境题，读取四项人格维度，并在对应人物库中寻找最接近你的精神轮廓。
+      </p>
+      <div class="guide-grid">
+        <div><strong>01</strong><span>凭第一直觉作答，不必选择“更好的自己”。</span></div>
+        <div><strong>02</strong><span>结果反映此刻的你，而不是固定不变的定义。</span></div>
+        <div><strong>03</strong><span>人物匹配不比较成就，只比较人格底色与选择倾向。</span></div>
+      </div>
+      <button class="primary-button dialog-start" type="button" data-action="start">
+        <span>开始测试</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 12h14"></path>
+          <path d="m14 7 5 5-5 5"></path>
+        </svg>
+      </button>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="./data.js"></script>
+    <script src="./questions.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
